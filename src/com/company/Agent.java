@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Arrays;
+
 public class Agent {
 
     private String nom;
@@ -7,11 +9,17 @@ public class Agent {
     private  String password;
     private String[] outils;
 
+
+
     public Agent(String nom, String titre, String password, String[] outils) {
         this.nom = nom;
         this.titre = titre;
         this.password = password;
         this.outils = outils;
+    }
+
+    public Agent() {
+
     }
 
     public String getNom() {
@@ -46,4 +54,13 @@ public class Agent {
         this.outils = outils;
     }
 
+    @Override
+    public String toString() {
+        return "Agent{" +
+                "nom='" + nom + '\'' +
+                ", titre='" + titre + '\'' +
+                ", password='" + password + '\'' +
+                ", outils=" + Arrays.toString(outils) +
+                '}';
+    }
 }
