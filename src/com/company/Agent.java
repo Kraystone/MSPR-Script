@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class Agent {
 
@@ -8,11 +9,11 @@ public class Agent {
     private String titre;
     private String password;
     private String fileName;
-    private String[] outils;
+    private List<Outil> outils;
 
 
 
-    public Agent(String nom, String titre, String password, String[] outils, String fileName) {
+    public Agent(String nom, String titre, String password, List<Outil> outils, String fileName) {
         this.nom = nom;
         this.titre = titre;
         this.password = password;
@@ -36,31 +37,31 @@ public class Agent {
         return nom;
     }
 
-    public String getTitre() {
-        return titre;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public String[] getOutils() {
-        return outils;
-    }
-
     public void setNom(String nom) {
         this.nom = nom;
+    }
+
+    public String getTitre() {
+        return titre;
     }
 
     public void setTitre(String titre) {
         this.titre = titre;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
     public void setPassword(String password) {
         this.password = password;
     }
 
-    public void setOutils(String[] outils) {
+    public List<Outil> getOutils() {
+        return outils;
+    }
+
+    public void setOutils(List<Outil> outils) {
         this.outils = outils;
     }
 
@@ -70,7 +71,9 @@ public class Agent {
                 "nom='" + nom + '\'' +
                 ", titre='" + titre + '\'' +
                 ", password='" + password + '\'' +
-                ", outils=" + Arrays.toString(outils) +
+//                ", outils=" + Arrays.toString(outils) +
                 '}';
     }
+
+
 }
