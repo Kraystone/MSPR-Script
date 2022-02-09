@@ -6,16 +6,26 @@ public class Agent {
 
     private String nom;
     private String titre;
-    private  String password;
+    private String password;
+    private String fileName;
     private String[] outils;
 
 
 
-    public Agent(String nom, String titre, String password, String[] outils) {
+    public Agent(String nom, String titre, String password, String[] outils, String fileName) {
         this.nom = nom;
         this.titre = titre;
         this.password = password;
         this.outils = outils;
+        this.fileName = fileName;
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
     }
 
     public Agent() {

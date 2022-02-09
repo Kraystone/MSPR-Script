@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Acceuil</title>
-
     <link href="style.css">
 </head>
 <body>
@@ -12,29 +11,13 @@
         <h1>Choisir un Agent dans la liste</h1>
     </div>
     <div class="img-navbar">
-        <img src="images/logo.png" alt="logo">
+        <img src="../src/Ressource/images/logo.png" alt="logo">
     </div>
 </div>
 
 <div class="container-principal">
-<!--TODO voir boucle -->
-<!--    Foreach listes des agents pour un agent -->
-<!--   TODO voir pour le binding de l'agent avec son lien  -->
 
-    <% for (int i=0; i<10; i++) { %>
-    <%= i %> <div class="card">
-    <a href="/lienAgent">
-        <img src="images/agent.png" alt="Avatar" style="width:100%">
-        <div class="container">
-            <h4><b>{{agent.nom}}</b></h4>
-            <p>{{Agent.titre}}</p>
-        </div>
-    </a>
-</div>
-    <% }%>
-
-<!---->
-
+{{Agent}}
 
 </div>
 

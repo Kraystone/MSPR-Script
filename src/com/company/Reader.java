@@ -9,7 +9,7 @@ public class Reader {
 
     public List<Agent> lireTout() throws IOException {
         ArrayList<String> allFiles = new ArrayList<>();
-        listeRepertoire(new File("C:/wamp64/www/MSPR-Script/src/Ressource/agents - voir htpasswd"), allFiles);
+        listeRepertoire(new File("D:\\Document Epsi\\OneDrive - Ifag Paris\\B3\\Integration continue\\Maven\\MSPR-Script\\src\\Ressource\\agents - voir htpasswd"), allFiles);
         File f;
         FileReader fr;
         BufferedReader br;
