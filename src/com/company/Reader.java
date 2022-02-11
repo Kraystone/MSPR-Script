@@ -8,10 +8,10 @@ public class Reader {
     /**
      * Variables Globales
      */
+    // TODO Modifier le chemin suivant le projet PS : MERCI DE GARDER LES URLS DE CHACUN !
     String cheminDossierAgent = "C:\\wamp64\\www\\MSPR-Script\\src\\Ressource\\agents - voir htpasswd"; // Antho
 //    String cheminDossierAgent = "D:\\Document Epsi\\OneDrive - Ifag Paris\\B3\\Integration continue\\Maven\\MSPR-Script\\src\\Ressource\\agents - voir htpasswd": // Léo
 
-    String cheminAcceuilHtml = "C:\\wamp64\\www\\MSPR-Script\\Templates\\Accueil.html";
     String cheminAgentInfoHtml = "C:\\wamp64\\www\\MSPR-Script\\Templates\\AgentInfo.html";
 
     public Reader() {}
@@ -36,33 +36,34 @@ public class Reader {
             br = new BufferedReader(fr);
             String ligne = br.readLine();
             List<String> texteFichier = new ArrayList<>();
-            Agent agent = new Agent();
 
-
-//            GeneratorHTML gen = new GeneratorHTML();
-//            System.out.println(gen.generateAgentInfoHTML(listeAgent));
 
             while (ligne != null) {
-                ligne = br.readLine();
+                // Ajout de la premier Ligne
                 texteFichier.add(ligne);
+                // Passage a la phochaine ligne
+                ligne = br.readLine();
             }
             // Instanciation d'un agent via la lecture du tableau
             // Index 0 = nom de l'agent
-            agent.setNom(texteFichier.get(0));
-            // Index 1 = Mission/Poste
-            agent.setTitre(texteFichier.get(1));
-            // Index 2 = Le mot de passe
-            agent.setPassword(texteFichier.get(2));
-            // On saute l'index 3 car c'est un saut de ligne !
-            // Index 4 5 6 = Equipements attribuées.
-            Outil outil1 = new Outil(texteFichier.get(4));
-            Outil outil2 = new Outil(texteFichier.get(5));
-            Outil outil3 = new Outil(texteFichier.get(6));
+            // Index 1 = Prénom de l'agent
+            // Index 2 = Mission/Poste
+            // Index 3 = Le mot de passe
+            // On saute l'index 4 car c'est un saut de ligne !
+            // Index 5 6 7 = Equipements attribuées.
+            Outil outil1 = new Outil(texteFichier.get(5));
+            Outil outil2 = new Outil(texteFichier.get(6));
+            Outil outil3 = new Outil(texteFichier.get(7));
 
-            Outil[] outilList = new Outil[] {outil1, outil2, outil3 };
-
-            agent.setOutils(List.of(outilList));
-
+            // Création du lien vers le fichier HTML de l'agent précis ( exemple : /NomPrénom.html )
+            // TODO Voir le lien suivant projet
+            String lien = "/" + texteFichier.get(0) + texteFichier.get(1) + ".html";
+            List<Outil> outilList = new ArrayList<>();
+            outilList.add(outil1);
+            outilList.add(outil2);
+            outilList.add(outil3);
+            // Hydrate l'agent avec les différents attributs.
+            Agent agent = new Agent(texteFichier.get(0),texteFichier.get(1),texteFichier.get(2),texteFichier.get(3),lien,outilList);
             // On ajoute l'agent à la liste d'agents
             listeAgent.add(agent);
             br.close();
@@ -71,11 +72,6 @@ public class Reader {
         return listeAgent;
     }
 
-    /**
-     * Que paso ? Liste de fichiers
-     * @param path chemin du dossier
-     * @param allFiles tout les fichiers présent
-     */
     public static void listeRepertoire(File path, List<String> allFiles)
     {
         if (path.isDirectory()) {

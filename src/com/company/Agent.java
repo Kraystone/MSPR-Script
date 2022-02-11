@@ -1,26 +1,27 @@
 package com.company;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class Agent {
-
+    // Attributs
     private String nom;
+    private String prenom;
     private String titre;
     private String password;
     private String fileName;
     private List<Outil> outils;
 
-
-
-    public Agent(String nom, String titre, String password, List<Outil> outils, String fileName) {
+    // Construteurs
+    public Agent(String nom, String prenom, String titre, String password, String fileName, List<Outil> outils) {
         this.nom = nom;
+        this.prenom = prenom;
         this.titre = titre;
         this.password = password;
-        this.outils = outils;
         this.fileName = fileName;
+        this.outils = outils;
     }
 
+    // Getter Setter
     public String getFileName() {
         return fileName;
     }
@@ -29,16 +30,20 @@ public class Agent {
         this.fileName = fileName;
     }
 
-    public Agent() {
-
-    }
-
     public String getNom() {
         return nom;
     }
 
     public void setNom(String nom) {
         this.nom = nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
     }
 
     public String getTitre() {
@@ -69,11 +74,11 @@ public class Agent {
     public String toString() {
         return "Agent{" +
                 "nom='" + nom + '\'' +
+                ", prenom='" + prenom + '\'' +
                 ", titre='" + titre + '\'' +
                 ", password='" + password + '\'' +
-//                ", outils=" + Arrays.toString(outils) +
+                ", fileName='" + fileName + '\'' +
+                ", outils=" + outils +
                 '}';
     }
-
-
 }
