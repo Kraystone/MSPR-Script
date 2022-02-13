@@ -9,11 +9,11 @@ public class Reader {
      * Variables Globales
      */
     // TODO Modifier le chemin suivant le projet PS : MERCI DE GARDER LES URLS DE CHACUN !
-    String cheminDossierAgent = "C:\\wamp64\\www\\MSPR-Script\\src\\Ressource\\agents - voir htpasswd"; // Antho
+    //String cheminDossierAgent = "C:\\wamp64\\www\\MSPR-Script\\src\\Ressource\\agents - voir htpasswd"; // Antho
 //    String cheminDossierAgent = "D:\\Document Epsi\\OneDrive - Ifag Paris\\B3\\Integration continue\\Maven\\MSPR-Script\\src\\Ressource\\agents - voir htpasswd": // Léo
-
-    String cheminAgentInfoHtml = "C:\\wamp64\\www\\MSPR-Script\\Templates\\AgentInfo.html";
-
+    String cheminDossierAgent = "C:\\Users\\theof\\IdeaProjects\\MSPR-Script\\src\\Ressource\\agents - voir htpasswd";
+    //String cheminAgentInfoHtml = "C:\\wamp64\\www\\MSPR-Script\\Templates\\AgentInfo.html";
+    String cheminAgentInfoHtml = "C:\\Users\\theof\\IdeaProjects\\MSPR-Script\\Templates\\AgentInfo.html";
     public Reader() {}
 
     /**

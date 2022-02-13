@@ -50,7 +50,7 @@ public class GeneratorTemplate {
      */
     public void generateTemplAcceuil(List<Agent> listeAgents) throws IOException {
         // TODO voir le chemin dans GitLab
-        String cheminDeDossierGen = "C:\\wamp64\\www\\MSPR-Script\\Generer\\";
+        String cheminDeDossierGen = "C:\\Users\\theof\\IdeaProjects\\MSPR-Script\\Generer\\";
 
         // Si le dossier "Generer" n'existe pas il est crée.
         if (!Files.exists(Paths.get(cheminDeDossierGen))) {
@@ -83,5 +83,44 @@ public class GeneratorTemplate {
         }
         br.close();
         bw.close();
+    }
+
+    public void generateTemplAgent(List<Agent> listeAgents) throws IOException {
+        // TODO voir le chemin dans GitLab
+        String cheminDeDossierGen = "C:\\Users\\theof\\IdeaProjects\\MSPR-Script\\Generer\\Agent\\";
+
+        if (!Files.exists(Paths.get(cheminDeDossierGen))) {
+            Files.createDirectories(Paths.get(cheminDeDossierGen));
+        }
+        for (Agent agent : listeAgents) {
+            BufferedReader br = new BufferedReader(new FileReader("./Templates/Agent.html"));
+
+            BufferedWriter bw = new BufferedWriter(new FileWriter(cheminDeDossierGen + "Agent" + agent.getNom() +".html", StandardCharsets.UTF_8));
+            String ligne;
+
+            while ((ligne = br.readLine()) != null) {
+                if(ligne.contains("{{agent.nom}}")) {
+                    ligne = ligne.replace("{{agent.nom}}", agent.getNom());
+                }
+                if(ligne.contains("{{agent.prenom}}")) {
+                    ligne = ligne.replace("{{agent.prenom}}", agent.getPrenom());
+                }
+                if(ligne.contains("{{agent.equipement}}")) {
+                    ligne = ligne.replace("{{agent.equipement}}", generateListeOutils(agent.getOutils()));
+                }
+                bw.write(ligne);
+            }
+            br.close();
+            bw.close();
+        }
+    }
+    public String generateListeOutils(List<Outil> outils) throws IOException{
+        StringBuilder html = new StringBuilder();
+        String ligne;
+        for (Outil outil : outils){
+            ligne="<li>" + outil.getNom() + "</li>";
+            html.append(ligne);
+        }
+        return html.toString();
     }
 }
