@@ -10,6 +10,7 @@ public class  Main {
         List<Agent> ListeAgent = reader.lireTout();
         // Appel de la classe generatorTemplate pour acceder a ses méthodes
         GeneratorTemplate gen = new GeneratorTemplate();
+        gen.generateTemplAgent(ListeAgent);
         gen.generateTemplAcceuil(ListeAgent);
 
     }

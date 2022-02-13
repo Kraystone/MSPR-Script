@@ -94,8 +94,8 @@ public class GeneratorTemplate {
         }
         for (Agent agent : listeAgents) {
             BufferedReader br = new BufferedReader(new FileReader("./Templates/Agent.html"));
-
-            BufferedWriter bw = new BufferedWriter(new FileWriter(cheminDeDossierGen + "Agent" + agent.getNom() +".html", StandardCharsets.UTF_8));
+            String filename = cheminDeDossierGen + "Agent" + agent.getNom() +".html";
+            BufferedWriter bw = new BufferedWriter(new FileWriter(filename, StandardCharsets.UTF_8));
             String ligne;
 
             while ((ligne = br.readLine()) != null) {
@@ -109,7 +109,9 @@ public class GeneratorTemplate {
                     ligne = ligne.replace("{{agent.equipement}}", generateListeOutils(agent.getOutils()));
                 }
                 bw.write(ligne);
+
             }
+            agent.setFileName(filename);
             br.close();
             bw.close();
         }
