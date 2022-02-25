@@ -49,17 +49,15 @@ public class GeneratorTemplate {
      * @throws IOException
      */
     public void generateTemplAcceuil(List<Agent> listeAgents) throws IOException {
-        // TODO voir le chemin dans GitLab
-        String cheminDeDossierGen = "C:\\Users\\theof\\IdeaProjects\\MSPR-Script\\Generer\\";
-
+        String cheminDeDossierGen = "Generer\\";
         // Si le dossier "Generer" n'existe pas il est crée.
         if (!Files.exists(Paths.get(cheminDeDossierGen))) {
             Files.createDirectories(Paths.get(cheminDeDossierGen));
         }
         // Lecture du fichier Acceuil de base
-        BufferedReader br = new BufferedReader(new FileReader("./Templates/Accueil.html"));
+        BufferedReader br = new BufferedReader(new FileReader("./Templates/index.html"));
         // Ecriture du fichier final
-        BufferedWriter bw = new BufferedWriter(new FileWriter(cheminDeDossierGen + "Accueil.html", StandardCharsets.UTF_8));
+        BufferedWriter bw = new BufferedWriter(new FileWriter(cheminDeDossierGen + "index.html", StandardCharsets.UTF_8));
         String line;
         int counter = 0;
 
@@ -86,9 +84,7 @@ public class GeneratorTemplate {
     }
 
     public void generateTemplAgent(List<Agent> listeAgents) throws IOException {
-        // TODO voir le chemin dans GitLab
-        String cheminDeDossierGen = "C:\\Users\\theof\\IdeaProjects\\MSPR-Script\\Generer\\Agent\\";
-
+        String cheminDeDossierGen = "Generer\\Agent\\";
         if (!Files.exists(Paths.get(cheminDeDossierGen))) {
             Files.createDirectories(Paths.get(cheminDeDossierGen));
         }

@@ -1,19 +1,20 @@
 package com.company;
 
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Reader {
 
     /**
      * Variables Globales
      */
-    // TODO Modifier le chemin suivant le projet PS : MERCI DE GARDER LES URLS DE CHACUN !
-    //String cheminDossierAgent = "C:\\wamp64\\www\\MSPR-Script\\src\\Ressource\\agents - voir htpasswd"; // Antho
-//    String cheminDossierAgent = "D:\\Document Epsi\\OneDrive - Ifag Paris\\B3\\Integration continue\\Maven\\MSPR-Script\\src\\Ressource\\agents - voir htpasswd": // Léo
-    String cheminDossierAgent = "C:\\Users\\theof\\IdeaProjects\\MSPR-Script\\src\\Ressource\\agents - voir htpasswd";
-    //String cheminAgentInfoHtml = "C:\\wamp64\\www\\MSPR-Script\\Templates\\AgentInfo.html";
-    String cheminAgentInfoHtml = "C:\\Users\\theof\\IdeaProjects\\MSPR-Script\\Templates\\AgentInfo.html";
+
+    String cheminDossierAgent = "src/main/resources/agents - voir htpasswd"; // Léo
+    String cheminAgentInfoHtml = "Templates/Agent.html";
     public Reader() {}
 
     /**
@@ -56,7 +57,6 @@ public class Reader {
             Outil outil3 = new Outil(texteFichier.get(7));
 
             // Création du lien vers le fichier HTML de l'agent précis ( exemple : /NomPrénom.html )
-            // TODO Voir le lien suivant projet
             String lien = "/" + texteFichier.get(0) + texteFichier.get(1) + ".html";
             List<Outil> outilList = new ArrayList<>();
             outilList.add(outil1);
